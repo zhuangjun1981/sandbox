@@ -50,7 +50,6 @@ class ParallelProcess():
     def _job(self, args, queue):
         """Wrapper function to run a job function with the specified args and append the return value to the queue.
         Args:
-            job_fn (function): Job function
             args (tuple, list): List of arguments for job function
             queue (multiprocessing Queue): Multithreading queue object
         """
@@ -122,7 +121,7 @@ class ParallelProcess():
                 return None
 
 
-class PrintNumbers(ParallelProcess):
+class AddNumbers(ParallelProcess):
 
     def __init__(self):
         super(ParallelProcess, self).__init__()
@@ -133,6 +132,6 @@ class PrintNumbers(ParallelProcess):
 
 if __name__ == "__main__":
 
-    p = PrintNumbers()
+    p = AddNumbers()
     numbers = [(n, n + 1) for n in range(10)]
     p.run(numbers)
